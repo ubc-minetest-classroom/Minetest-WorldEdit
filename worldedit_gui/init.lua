@@ -192,7 +192,7 @@ elseif minetest.global_exists("sfinv") then -- sfinv installed
 	sfinv.override_page("sfinv:crafting", {
 		get = function(self, player, context)
 			local can_worldedit = minetest.check_player_privs(player, {worldedit=true})
-			local fs = orig_get(self, player, context)
+			local fs = orig_get(self, player, context) or ""
 			return fs .. (can_worldedit and "image_button[0,0;1,1;inventory_plus_worldedit_gui.png;worldedit_gui;]" or "")
 		end
 	})
